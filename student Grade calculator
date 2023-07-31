@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+struct student{
+int ID;
+string name;
+float test_mark, final_mark;
+int sum;
+ char grade;
+};
+int main()
+{
+    int no_stud;
+     cout<<"enter number of students: ";
+     cin>>no_stud;
+     student stud[no_stud];
+     for(int i=0; i<no_stud; i++){
+
+        cout<<"enter name of student "<<i+1<<": ";
+        cin>>stud[i].name;
+        cout<<"enter ID of student"<<i+1<<": ";
+        cin>>stud[i].ID;
+        cout<<"enter test mark of student "<<i+1<<": ";
+        cin>>stud[i].test_mark;
+        cout<<"enter final mark of student "<<i+1<<": ";
+        cin>>stud[i].final_mark;
+        stud[i].sum= stud[i].test_mark+ stud[i].final_mark;
+        cout<<"total mark of student "<<i+1<<" is "<<stud[i].sum;
+        if(stud[i].sum>=80){
+         stud[i].grade = 'A';
+        }
+        else if(stud[i].sum>=60){
+        stud[i].grade='B';
+        }
+        else{ stud[i].grade= 'F';}
+        cout<<endl;
+     }
+     cout<<"name \t ID \ttotal_mark"<<": "<<"\tgrade"<<endl;
+     for(int i=0; i<no_stud; i++){
+       cout<<stud[i].name<<"\t"<<stud[i].ID<<"\t"<<stud[i].sum<<"\t\t"<<stud[i].grade<<endl;
+     }
+}
